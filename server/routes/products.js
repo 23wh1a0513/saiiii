@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // const express = require("express");
 // const Product = require("../models/Product");
 
@@ -13,11 +14,14 @@
 // });
 
 // module.exports = router;
+=======
+>>>>>>> 2fbe77f7300f98085cf70ff5b783b5f6526408f7
 const express = require("express");
 const Product = require("../models/Product");
 
 const router = express.Router();
 
+<<<<<<< HEAD
 /* GET all */
 router.get("/", async (req, res) => {
 
@@ -65,3 +69,15 @@ router.put("/:id", async (req, res) => {
 });
 
 module.exports = router;
+=======
+router.get("/", async (req, res) => {
+  try {
+    const products = await Product.find().sort({ createdAt: -1 });
+    return res.status(200).json(products);
+  } catch (err) {
+    return res.status(500).json({ error: "Server error" });
+  }
+});
+
+module.exports = router;
+>>>>>>> 2fbe77f7300f98085cf70ff5b783b5f6526408f7
